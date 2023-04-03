@@ -9,20 +9,27 @@
   <body>
     <app-header></app-header>
 
-    <!-- <app-card></app-card> -->
-
-    <h2>Tipologiche</h2>
+    <!-- <h2>Tipologiche</h2>
     <ul class="list-group">
-      <li *ngFor="let restaurant of tipologiche" class="list-group-item">
-        {{ restaurant }}
+      <li *ngFor="let tipologie of tipologiche" class="list-group-item">
+        {{ tipologie }}
       </li>
-    </ul>
+    </ul> -->
 
-    <h2>Restaurants</h2>
-    <ul class="list-group">
-      <li *ngFor="let x of restaurants" class="list-group-item">
-        {{ x.companyName }}
-      </li>
-    </ul>
+    <app-card
+      [restaurant]="restaurant"
+      *ngFor="let restaurant of restaurants"
+      class="list-group-item"
+    ></app-card>
+
+    <div class="card flex justify-content-center">
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        [first]="first"
+        [rows]="rows"
+        [totalRecords]="120"
+        [rowsPerPageOptions]="[10, 20, 30]"
+      ></p-paginator>
+    </div>
   </body>
 </html>

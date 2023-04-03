@@ -11,6 +11,10 @@ export class AppComponent implements OnInit {
 
   tipologiche: any;
   restaurants: any;
+  restaurantsNumber: any;
+
+  first: number = 1;
+  rows: number = 11;
 
   constructor(private service: PostService) {}
 
@@ -19,9 +23,24 @@ export class AppComponent implements OnInit {
       this.tipologiche = response;
     });
 
-    this.service.getRestaurants().subscribe((response: any) => {
-      this.restaurants = response.array;
-      console.log(this.restaurants);
+    this.service
+      .getRestaurants(this.first, this.rows)
+      .subscribe((response: any) => {
+        this.restaurants = response.array;
+        this.restaurantsNumber = response.totalCount;
+      });
+  }
+
+  onPageChange(event: any) {
+    console.log(event);
+
+    this.first = event.first;
+    this.rows = event.rows;
+
+    console.log(this.first, this.rows);
+
+    this.service.getRestaurants(this.first, this.rows).subscribe((response) => {
+      this.restaurants = response;
     });
   }
 }

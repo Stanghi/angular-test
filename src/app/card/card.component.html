@@ -1,19 +1,19 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>Nome</mat-card-title>
-    <mat-card-subtitle>Company</mat-card-subtitle>
+    <mat-card-title>{{ restaurant.restaurantName }}</mat-card-title>
+    <mat-card-subtitle>{{ restaurant.companyName }}</mat-card-subtitle>
   </mat-card-header>
-  <!-- <img
+  <img
     mat-card-image
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-    alt="Photo of a Shiba Inu"
-  /> -->
+    src="https://media.istockphoto.com/id/1314951233/photo/interior-of-a-modern-cozy-french-restaurant.jpg?b=1&s=170667a&w=0&k=20&c=YkJegbzByz0SgHTQbZB5frVfXt3E_c7rUIfwdgb3Za8="
+    alt="Restaurant"
+  />
   <mat-card-content>
     <ul>
-      <li>Cuisine</li>
+      <li *ngFor="let x of restaurant.cuisine">{{ x }}</li>
     </ul>
   </mat-card-content>
 
-  <span>Phone</span>
-  <span>Email</span>
+  <span>{{ restaurant.phone }}</span>
+  <span>{{ restaurant.email }}</span>
 </mat-card>

@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [AppComponent, CardComponent, HeaderComponent],
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
+    PaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
